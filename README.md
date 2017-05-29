@@ -11,9 +11,9 @@ RTU version also features:
   - wget http://libmodbus.org/releases/libmodbus-3.1.2.tar.gz
   - `tar zxvpf libmodbus-3.1.2.tar.gz`
   - `cd libmodbus-3.1.2`
-  - `./configure`
-  - `make`
-  - `make install`
+  - `./configure` CC=gcc --enable-zabbix-{version}
+  - `gmake`
+  - `gmake install`
   - (if /usr/local/lib is not included in ld.so.conf.d/ (eg Centos6) ):  
       `echo '/usr/local/lib'>> /etc/ld.so.conf`  
   - `ldconfig`  
@@ -28,17 +28,17 @@ RTU version also features:
     - pkg-config
   - Prereq: Download and install libmodbus
   - Run `autogen.sh`
-  - `./configure --enable-zabbix-3.2` or `./configure --enable-zabbix-3` or `./configure --enable-zabbix-2`
-  - `make`
-  - `make install`  
+  - `./configure CC=gcc --enable-zabbix-3.2` or `./configure --enable-zabbix-3` or `./configure --enable-zabbix-2`
+  - `gmake`
+  - `gmake install`  
   
 ## 2.B Install from tar.gz sources  
 Download from  https://share.zabbix.com/dir-libraries/zabbix-loadable-modules/modbus-loadable-module
   - `tar zxvpf libzbxmodbus-0.4.tar.gz`
   - `cd libzbxmodbus-0.4`
-  - `./configure --enable-zabbix-3.2` or `./configure --enable-zabbix-3` or `./configure --enable-zabbix-2`
-  - `make`
-  - `make install`
+  - `./configure CC=gcc --enable-zabbix-3.2` or `./configure --enable-zabbix-3` or `./configure --enable-zabbix-2`
+  - `gmake`
+  - `gmake install`
 
 ## 3.Integrate into Zabbix  
   - Module libzbxmodule.so can be loaded into zabbix_server, zabbix_proxy or zabbix_agent(use passive mode).  
