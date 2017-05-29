@@ -58,11 +58,12 @@ int MODBUS_SEM_ID = -1;
 #define ZBX_MUTEX_NAME  int
 #define MAX_RETRIES 10
 
-union semun {
+/* FreeBSD define in sem.h */
+/* union semun {
     int val;
     struct semid_ds *buf;
     ushort *array;
-};
+}; */
 
 /* the variable keeps timeout setting for item processing */
 static int  item_timeout = 0;
@@ -515,7 +516,7 @@ int initsem()  /* sem_key from ftok() */
             }
         }
         if (!ready) {
-            errno = ETIME;
+            errno = ETIMEDOUT; /* FreeBSD system call */
             return -1;
         }
     } else {
